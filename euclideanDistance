@@ -1,0 +1,32 @@
+import math
+
+def euclideanDistance(point1, point2):
+    """
+    Calculate the Euclidean distance between two points.
+
+    Args:
+        point1 (tuple): (x1, y1)
+        point2 (tuple): (x2, y2)
+
+    Returns:
+        float: The Euclidean distance between the two points.
+    """
+    x1, y1 = point1
+    x2, y2 = point2
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+# points variable examples
+points = [(1, 2), (3, 4), (5, 6), (7, 8)]
+
+# Calculate the distances between each pair of points
+distances = []
+for i in range(len(points)):
+    for j in range(i + 1, len(points)):
+        distance = euclideanDistance(points[i], points[j])
+        distances.append(distance)
+        print("point1:" , points[i], "point2:" , points[j], "distance:", distance)
+
+# Find the minimum distance
+min_distance = min(distances)
+
+print("Minimum distance:", min_distance)
